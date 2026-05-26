@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Transmission — Arcaddia Archive</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body data-page="entry">
+
+<main class="container">
+
+  <!-- TOP NAV -->
+  <nav class="topbar">
+
+    <a href="../index.html" class="top-link">HOME</a>
+    <a href="../transmissions.html" class="top-link">TRANSMISSIONS</a>
+    <a href="../signal.html" class="top-link">SIGNAL</a>
+
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <p class="status">cycle: {{DATE}}</p>
+
+    <h1>Transmission {{ID}}</h1>
+
+    <p class="intro">
+      {{SUBTITLE}}
+    </p>
+  </header>
+
+  <!-- ARCHIVIST NOTE -->
+<section class="block">
+
+  <p class="label">ARCHIVIST NOTE</p>
+
+  <div class="archivist-note">
+
+    <p>
+      {{ARCHIVIST_NOTE}}
+    </p>
+
+  </div>
+
+</section>
+  <!-- AUDIO -->
+  <section class="block">
+
+    <p class="label">TRANSMISSION PLAYBACK</p>
+
+    <audio controls id="audio-player">
+      <source src="../audio/test-transmission.mp3" type="audio/mpeg">
+    </audio>
+
+    <p class="system-message" id="playback-status"></p>
+
+  </section>
+
+  <!-- TRANSMISSION BODY -->
+  <section class="block">
+
+    <p class="label">TRANSMISSION LOG</p>
+
+    <p>
+      {{TRANSMISSION_TEXT}}
+    </p>
+
+  </section>
+
+  <!-- SYSTEM STATUS -->
+  <section class="block">
+
+    <p class="label">SYSTEM STATUS</p>
+
+    <ul class="status-list">
+      <li>{{STATUS_LINE_1}}</li>
+      <li>{{STATUS_LINE_2}}</li>
+      <li>{{STATUS_LINE_3}}</li>
+    </ul>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>{{FOOTER_LINE}}    <span class="cursor">_</span></p>
+  </footer>
+
+</main>
+
+<!-- JS -->
+<script src="../archive.js"></script>
+
+</body>
+</html>

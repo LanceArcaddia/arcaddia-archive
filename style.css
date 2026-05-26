@@ -1,0 +1,385 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --archive-mode: unknown;
+}
+
+/* ------------------------------------------------ */
+/* BASE */
+/* ------------------------------------------------ */
+
+body {
+  margin: 0;
+
+  background: #111315;
+  color: #d8d6d1;
+
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  transition:
+    background 0.4s ease,
+    opacity 0.4s ease,
+    filter 0.4s ease;
+}
+
+/* ------------------------------------------------ */
+/* ENVIRONMENTAL STATES */
+/* ------------------------------------------------ */
+
+body[data-state="stable"] {
+  filter: brightness(1);
+}
+
+body[data-state="low-signal"] {
+  filter: brightness(0.96);
+}
+
+body[data-state="recovery"] {
+  filter: brightness(0.985);
+}
+
+/* ------------------------------------------------ */
+/* PAGE ATMOSPHERE */
+/* ------------------------------------------------ */
+
+body[data-page="home"] {
+  letter-spacing: 0.2px;
+}
+
+body[data-page="entry"] {
+  line-height: 1.7;
+}
+
+body[data-page="transmissions"] {
+  letter-spacing: 0.1px;
+}
+
+body[data-page="signal"] {
+  opacity: 0.95;
+}
+
+/* ------------------------------------------------ */
+/* LAYOUT */
+/* ------------------------------------------------ */
+
+.container {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.home {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ------------------------------------------------ */
+/* TYPOGRAPHY */
+/* ------------------------------------------------ */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+
+  margin-bottom: 1rem;
+
+  color: #f1efea;
+
+  letter-spacing: 0.03em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+}
+
+.intro {
+  color: #94989c;
+  max-width: 540px;
+}
+
+.transmission-body {
+  max-width: 620px;
+}
+
+/* ------------------------------------------------ */
+/* SYSTEM TEXT */
+/* ------------------------------------------------ */
+
+.system,
+.status,
+.label,
+.transmission-meta,
+.transmission-status,
+.system-message,
+footer p,
+.topbar,
+.back-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+/* ------------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------------ */
+
+header {
+  margin-bottom: 5rem;
+}
+
+.status {
+  color: #8e9499;
+
+  text-transform: uppercase;
+
+  margin-bottom: 2rem;
+}
+
+/* ------------------------------------------------ */
+/* NAVIGATION */
+/* ------------------------------------------------ */
+
+.topbar {
+  display: flex;
+  gap: 1.5rem;
+
+  margin-bottom: 5rem;
+
+  opacity: 0.82;
+
+  transition: opacity 0.3s ease;
+}
+
+.topbar:hover {
+  opacity: 1;
+}
+
+.top-link {
+  color: #8f959b;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.top-link:hover {
+  opacity: 0.72;
+
+  border-color: rgba(216, 214, 209, 0.18);
+}
+
+/* ------------------------------------------------ */
+/* LINKS */
+/* ------------------------------------------------ */
+
+.main-nav {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.main-nav a,
+.back-link,
+.transmission-item a {
+  color: #d8d6d1;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(216, 214, 209, 0.18);
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.main-nav a:hover,
+.back-link:hover,
+.transmission-item a:hover {
+  opacity: 0.72;
+
+  border-color: rgba(216, 214, 209, 0.35);
+}
+
+.back-link {
+  display: inline-block;
+
+  margin-bottom: 4rem;
+
+  color: #8f959b;
+}
+
+/* ------------------------------------------------ */
+/* CONTENT BLOCKS */
+/* ------------------------------------------------ */
+
+.block {
+  margin-bottom: 4rem;
+}
+
+.label {
+  text-transform: uppercase;
+
+  color: #8f959b;
+
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------------ */
+/* ARCHIVIST NOTE */
+/* ------------------------------------------------ */
+
+.archivist-note {
+  border-left: 1px solid #3a3f44;
+
+  padding-left: 1.25rem;
+
+  margin-top: 1rem;
+
+  color: #b7bcc2;
+
+  font-style: italic;
+
+  line-height: 1.8;
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.archivist-note p {
+  margin: 0;
+}
+
+/* ------------------------------------------------ */
+/* AUDIO */
+/* ------------------------------------------------ */
+
+audio {
+  width: 100%;
+
+  opacity: 0.82;
+
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------ */
+/* SYSTEM MESSAGES */
+/* ------------------------------------------------ */
+
+.system-message {
+  margin-top: 1rem;
+
+  color: #8f959b;
+}
+
+/* ------------------------------------------------ */
+/* TRANSMISSION LIST */
+/* ------------------------------------------------ */
+
+.transmission-list {
+  margin-top: 4rem;
+}
+
+.transmission-item {
+  padding: 2rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.transmission-meta,
+.transmission-status {
+  color: #8f959b;
+}
+
+.transmission-description {
+  margin-top: 0.5rem;
+
+  color: #8f959b;
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------ */
+/* STATUS LIST */
+/* ------------------------------------------------ */
+
+.status-list {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.status-list li {
+  margin-bottom: 0.7rem;
+
+  color: #b4b8bc;
+}
+
+/* ------------------------------------------------ */
+/* FOOTER */
+/* ------------------------------------------------ */
+
+footer {
+  margin-top: 6rem;
+  padding-top: 2rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+footer p {
+  color: #70767b;
+}
+
+/* ------------------------------------------------ */
+/* CURSOR */
+/* ------------------------------------------------ */
+
+.cursor {
+  display: inline-block;
+
+  margin-left: 3px;
+
+  color: #d8d6d1;
+
+  animation: archiveBlink 2.4s steps(1) infinite;
+}
+
+@keyframes archiveBlink {
+
+  0%,
+  45% {
+    opacity: 0;
+  }
+
+  50%,
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* ------------------------------------------------ */
+/* SELECTION */
+/* ------------------------------------------------ */
+
+::selection {
+  background: #2b3137;
+  color: #f1efea;
+}
